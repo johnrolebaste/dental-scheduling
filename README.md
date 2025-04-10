@@ -139,11 +139,11 @@ CMD ["npm", "start"]
 
 ### 2. Build the Docker image
 
-`docker build -t dental-scheduling-backend .` 
+`docker-compose up --build -d` 
 
 ### 3. Run the Docker container
 
-`docker run -p 3000:3000 -e MONGO_URI=mongodb://localhost:27017/dental_scheduling -e JWT_SECRET=your-secret-key dental-scheduling-backend` 
+`docker-compose up --build -d` 
 
 This will start the application inside a Docker container, making it accessible on `http://localhost:3000`.
 
