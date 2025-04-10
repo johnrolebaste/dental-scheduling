@@ -1,0 +1,95 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #007bff;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.dashboard-content {
+  padding-top: 100px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.appointments-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+.appointments-table th,
+.appointments-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.appointments-table th {
+  background-color: #f4f4f4;
+}
+
+.appointments-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.button-group {
+  display: flex;
+  gap: 5px;
+}
+
+button {
+  padding: 2px 4px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  width: 60px;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.logout-button {
+  background-color: #0056b3;
+  color: white;
+}
+
+.datepicker-popup {
+  margin-top: 10px;
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-appointment-button {
+  padding: 6px 10px;
+  background-color: #0077cc;
+  color: white;
+  border: 1px solid #005fa3;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+.add-appointment-button:hover {
+  background-color: #005fa3;
+}

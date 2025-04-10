@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: .
+    container_name: dental-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/dental_db
+    depends_on:
+      - mongo
+    networks:
+      - dental-network
+    restart: always
+
+  mongo:
+    image: mongo:latest
+    container_name: dental-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - dental-network
+    restart: always
+
+volumes:
+  mongo-data:
+
+networks:
+  dental-network:
+    driver: bridge

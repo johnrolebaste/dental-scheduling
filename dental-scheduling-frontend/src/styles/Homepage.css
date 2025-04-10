@@ -1,0 +1,88 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  background-color: #f0f8ff;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #007bff;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.login-button,
+.register-button,
+.logout-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-button {
+  background-color: #0056b3;
+  color: white;
+}
+
+.logout-button {
+  background-color: #0056b3;
+  color: white;
+}
+
+.dashboard-button {
+  background-color: #0056b3;
+  color: white;
+}
+
+.register-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.main-content {
+  text-align: center;
+  margin-top: 80px;
+}
+
+h2 {
+  margin: 20px 0;
+}
+
+p {
+  font-size: 18px;
+  color: #333;
+}
+
+.booking-link {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.booking-link:hover {
+  color: #0056b3;
+}
