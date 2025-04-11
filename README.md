@@ -139,10 +139,92 @@ CMD ["npm", "start"]
 
 ### 2. Build the Docker image
 
-`docker build -t dental-scheduling-backend .` 
+`docker-compose up --build -d` 
 
 ### 3. Run the Docker container
 
-`docker run -p 3000:3000 -e MONGO_URI=mongodb://localhost:27017/dental_scheduling -e JWT_SECRET=your-secret-key dental-scheduling-backend` 
+`docker-compose up --build -d` 
 
 This will start the application inside a Docker container, making it accessible on `http://localhost:3000`.
+
+
+# Dental Scheduling Frontend
+
+This is the frontend application for the **Dental Scheduling System** built using **React** and **Vite**. It provides the user interface for scheduling dental appointments, viewing available dentists, and managing the user's profile. The frontend interacts with the backend API for data retrieval and submission.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites-frontend)
+- [Installation](#installation-frontend)
+- [Configuration](#configuration-frontend)
+- [Running Locally](#running-locally-frontend)
+- [Available Pages](#available-pages-frontend)
+---
+
+## Prerequisites Frontend
+
+Before you begin, ensure you have met the following requirements:
+
+- **Node.js** (v18 or higher)
+- **Git** for cloning the repository
+- **Vite** (for development and building)
+- **React** (already included as part of the project)
+
+---
+
+## Installation Frontend
+
+To get started with the frontend:
+
+1. Go to frontend folder:
+    ```bash
+    cd dental-scheduling-frontend
+    ```
+
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3. Create a `.env` file in the root of the project for configuration (example below).
+
+### Example `.env` File
+
+```env
+VITE_API_URL=http://localhost:3000/api
+VITE_PUBLIC_URL=http://localhost:5173
+VITE_API_URL: The URL of the backend API
+VITE_PUBLIC_URL: The URL where the app is running locally (default for Vite is http://localhost:5173).
+```
+## Configuration Frontend
+```
+VITE_API_URL: The base URL of the backend API to make requests to (e.g., http://localhost:3000/api or the cloud backend URL).
+
+VITE_PUBLIC_URL: The frontend URL where the application will be accessed in development (default is http://localhost:5173).
+```
+
+## Running Locally Frontend
+Once you have installed the dependencies and configured the .env file, you can run the frontend application locally:
+
+Start the development server:
+
+``npm run dev``
+
+The app should now be running on http://localhost:5173.
+
+## Available Pages Frontend
+
+1. Home Page
+Displays an overview of the dental office and provides navigation to various sections of the app (e.g., booking, dentist listing).
+
+2. Booking Page
+Allows users to view available dentists and schedule appointments.
+
+3. User Dashboard
+Displays the user's information, including past and upcoming appointments.
+
+4. Login Page
+Allows users to log in with their credentials to access their account and schedule appointments.
+
+5. Register Page
+Allows users to create a new account and get started with the application.
