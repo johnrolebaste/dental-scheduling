@@ -3,6 +3,7 @@ import axios from "axios";
 import "../styles/DentistModal.css";
 
 const DentistModal = ({ isOpen, onClose, dentistId, onSave }) => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [name, setName] = useState("");
 
   const handleSubmit = async (e) => {
@@ -19,7 +20,7 @@ const DentistModal = ({ isOpen, onClose, dentistId, onSave }) => {
     try {
       if (dentistId) {
         await axios.put(
-          `http://localhost:3000/api/dentist`,
+          `${API_URL}/dentist`,
           { dentistId, name },
           {
             headers: {
@@ -29,7 +30,7 @@ const DentistModal = ({ isOpen, onClose, dentistId, onSave }) => {
           }
         );
       } else {
-        await axios.post("http://localhost:3000/api/dentist", dentistData, {
+        await axios.post(`${API_URL}/dentist`, dentistData, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",

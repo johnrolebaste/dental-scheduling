@@ -4,6 +4,8 @@ import axios from "axios";
 import "../styles/RegisterPage.css";
 
 const Register = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +22,7 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/api/register", {
+      const response = await axios.post(`${API_URL}/register`, {
         name,
         email,
         password,

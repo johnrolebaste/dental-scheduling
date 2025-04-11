@@ -6,6 +6,8 @@ import axios from "axios";
 import "../styles/UserDashboard.css";
 
 const UserDashboard = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -20,14 +22,11 @@ const UserDashboard = () => {
 
       if (token) {
         try {
-          const response = await axios.get(
-            "http://localhost:3000/api/appointments",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
+          const response = await axios.get(`${API_URL}/appointments`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
           setAppointments(response.data);
         } catch (err) {
           setError(err.message);
@@ -48,7 +47,7 @@ const UserDashboard = () => {
 
     if (token) {
       try {
-        await axios.delete(`http://localhost:3000/api/appointments`, {
+        await axios.delete(`${API_URL}/appointments`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -70,14 +69,11 @@ const UserDashboard = () => {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await axios.get(
-        `http://localhost:3000/api/dentist/${dentistId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.get(`${API_URL}/dentist/${dentistId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       const appointments = response.data.scheduledAppointments || [];
       const dates = appointments
@@ -96,7 +92,7 @@ const UserDashboard = () => {
 
     try {
       await axios.put(
-        `http://localhost:3000/api/appointments`,
+        `${API_URL}/appointments`,
         {
           appointmentId: appointmentId,
           status: "scheduled",

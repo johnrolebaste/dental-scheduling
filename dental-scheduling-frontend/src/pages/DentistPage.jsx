@@ -5,6 +5,8 @@ import DentistModal from "./DentistModal";
 import "../styles/DentistPage.css";
 
 const DentistPage = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [dentists, setDentists] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,7 +19,7 @@ const DentistPage = () => {
       const token = localStorage.getItem("token");
 
       try {
-        const response = await axios.get("http://localhost:3000/api/dentist", {
+        const response = await axios.get(`${API_URL}/dentist`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -42,7 +44,7 @@ const DentistPage = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:3000/api/dentist`, {
+      await axios.delete(`${API_URL}/dentist`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -76,7 +78,7 @@ const DentistPage = () => {
       const token = localStorage.getItem("token");
 
       try {
-        const response = await axios.get("http://localhost:3000/api/dentist", {
+        const response = await axios.get(`${API_URL}/dentist`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

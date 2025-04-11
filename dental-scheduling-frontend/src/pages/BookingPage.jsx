@@ -15,6 +15,8 @@ const Booking = () => {
   const [userId, setUserId] = useState("");
   const navigate = useNavigate();
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchDentists = async () => {
       const token = localStorage.getItem("token");
@@ -24,14 +26,11 @@ const Booking = () => {
           const decodedToken = jwtDecode(token);
           setUserId(decodedToken.id);
 
-          const response = await axios.get(
-            "http://localhost:3000/api/dentist",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
+          const response = await axios.get(`${API_URL}/dentist`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
           setDentists(response.data);
         } catch (error) {
           setError("Failed to decode token or fetch dentists");
@@ -102,7 +101,7 @@ const Booking = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/appointments",
+        `${API_URL}/appointments`,
         bookingData,
         {
           headers: {
